@@ -228,8 +228,9 @@ func (connector *Connector) ProducerChannel(topic string) chan *flow.FlowMessage
 					continue
 				}
 				connector.producer.Input() <- &sarama.ProducerMessage{
-					Topic: topic,
-					Value: sarama.ByteEncoder(binary),
+					Topic:     topic,
+					Timestamp: time.Unix(int64(message.TimeFlowStart), 0),
+					Value:     sarama.ByteEncoder(binary),
 				}
 			}
 			log.Printf("Kafka Producer: Terminating topic %s, channel has closed", topic)
