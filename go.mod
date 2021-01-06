@@ -1,4 +1,4 @@
-module github.com/bwNetFlow/kafkaconnector
+module github.com/SubmergedTree/kafkaconnector
 
 go 1.15
 
