@@ -229,7 +229,7 @@ func (connector *Connector) ProducerChannel(topic string) chan *flow.FlowMessage
 				}
 				connector.producer.Input() <- &sarama.ProducerMessage{
 					Topic:     topic,
-					Timestamp: time.Unix(int64(message.TimeFlowStart), 0),
+					Timestamp: time.Unix(int64(message.TimeReceived), 0),
 					Value:     sarama.ByteEncoder(binary),
 				}
 			}
